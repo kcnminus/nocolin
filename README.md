@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# My Biographical Website, aka nocolin.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React-based web app to introduce myself and some of the work I've been doing.
+I have a few different components - a Bio, a Spotify Player, and a Gallery. 
+The Spotify Player features my own music, and has the player rendered onscreen with a simple embed link for now.
+The Gallery showcases a small collection of photographs I've taken, and should render EXIF data once backend integration is complete. 
+Other features and updates are currently in progress!
+
+I intend to introduce a blog component and an admin panel that will use Node to handle blog operations and Express to handle API endpoints. 
+I will likely use Postgres for database storage and relationships. 
+
+If you're interested in keeping up with the changes, feel free to give me a shout. Thanks!
 
 ## Available Scripts
 
