@@ -1,11 +1,18 @@
 import React from 'react';
 
 const Bio = (props) => {
+  const {name, location, bioText} = props;
+
   return (
     <div>
-      <h1>{props.name}</h1>
-      <p>Location: {props.location}</p>
-      <p>About Me: {props.bioText}</p>
+      <img 
+        className="max-w-sm"
+        src={require('../assets/green_hat.JPG')} 
+        alt="Profile"
+      />
+      <h1>{ name }</h1>
+      <p>Location: { location }</p>
+      <p>About Me: { bioText }</p>
     </div>
   );
 };
