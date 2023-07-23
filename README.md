@@ -11,6 +11,10 @@ I will likely use Postgres for database storage and relationships.
 
 If you're interested in keeping up with the changes, feel free to give me a shout. Thanks!
 
+Edit 07/23/23: 
+- Small refactor to convert the Bio, SpotifyPlayer, and Gallery components into separate routes.
+- Added a small suite of unit tests to confirm that each of the frontend components is rendering as expected. 
+
 ## Available Scripts
 
 In the project directory, you can run:
