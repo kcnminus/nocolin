@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import Bio from './components/Bio';
-import SpotifyPlayer from './components/SpotifyPlayer';
-import Gallery from './components/Gallery';
+import Bio from './Bio';
+import SpotifyPlayer from './SpotifyPlayer';
+import Gallery from './Gallery';
 
 const App = () => {
   const [activeComponent, setActiveComponent] = useState('Home');
