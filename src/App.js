@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Bio from './components/Bio';
 import SpotifyPlayer from './components/SpotifyPlayer';
 import Gallery from './components/Gallery';
 
 const App = () => {
-  const [activeComponent, setActiveComponent] = useState('bio');
+  const [activeComponent, setActiveComponent] = useState('Home');
 
   const handleNavClick = (componentName) => {
     setActiveComponent(componentName);
@@ -17,26 +18,44 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>nocolin</h1>
-      <nav>
-        <button onClick={() => handleNavClick('bio')}>Bio</button>
-        <button onClick={() => handleNavClick('spotify')}>Spotify Player</button>
-        <button onClick={() => handleNavClick('gallery')}>Gallery</button>
-      </nav>
-
-      {activeComponent === 'bio' && (
-        <Bio 
-          name={bioData.name}
-          location={bioData.location}
-          bioText={bioData.bioText}
-        />
-      )}
-      
-      {activeComponent === 'spotify' && <SpotifyPlayer />}
-      {activeComponent === 'gallery' && <Gallery />}
-    </div>
+    <Router>
+      <div>
+        <h1>nocolin</h1>
+        <nav>
+          <ul>
+            <li onClick={() => handleNavClick('Home')}>
+              <Link to="/">Home</Link>
+            </li>
+            <li onClick={() => handleNavClick('Bio')}>
+              <Link to="/bio">About Me</Link>
+            </li>
+            <li onClick={() => handleNavClick('Spotify')}>
+              <Link to="/spotify">My Spotify</Link>
+            </li>
+            <li onClick={() => handleNavClick('Gallery')}>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={Home}/>
+          <Route path="/bio" render={() => <Bio {...bioData} />} />
+          <Route path="/spotify" element={SpotifyPlayer} />
+          <Route path="/gallery" element={Gallery}/>
+        </Routes>
+        <div>
+          {activeComponent === 'Home' && <Home/>}
+          {activeComponent === 'Bio' && <Bio {...bioData} />}
+          {activeComponent === 'Spotify' && <SpotifyPlayer />}
+          {activeComponent === 'Gallery' && <Gallery />}
+        </div>
+      </div>
+    </Router>
   );
 };
+
+const Home = () => {
+  return <div>Welcome to nocolin.com!</div>
+}
 
 export default App;
