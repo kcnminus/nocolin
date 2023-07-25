@@ -11,7 +11,10 @@ I will likely use Postgres for database storage and relationships.
 
 If you're interested in keeping up with the changes, feel free to give me a shout. Thanks!
 
-Edit 07/23/23: 
+07/24/23:
+- I have decided to use the exif-js(https://github.com/exif-js/exif-js) library to display the EXIF data from my images as opposed to using exif-parser in the backend. Because exif-js is designed to work with images directly on a website, it seems like a good fit for extracting EXIF data from images that are already loaded in the browser from `src/assets`.
+
+07/23/23: 
 - Small refactor to convert the Bio, SpotifyPlayer, and Gallery components into separate routes.
 - Added a small suite of unit tests to confirm that each of the frontend components is rendering as expected. 
 

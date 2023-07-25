@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import EXIF from 'exif-js';
 
 const imageUrls = [
   require('../assets/1.jpg'),
@@ -51,9 +52,39 @@ const imageUrls = [
   require('../assets/48.jpg'),
   require('../assets/49.jpg'),
   require('../assets/50.jpg')
-]
+];
 
 const Gallery = () => {
+  const [imageData, setImageData] = useState([]);
+  const [exifData, setExifData] = useState([]);
+
+  // useEffect will confirm that my component has mounted and then run fetchImageUrls
+  useEffect(() => {
+    const fetchImageUrls = async () => {
+      try {
+        // Fetch image URLs and update state
+        const response = await fetch(imageUrls);
+        if (!response.ok) {
+          throw new Error('Failed to fetch image URLs');
+        }
+        const data = await response.json();
+        setImageData(data);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+
+      fetchImageUrls();
+  }, []);
+
+  const getExif = (imageBlob) => {
+    return new Promise((resolve) => {
+      EXIF.getData(imageBlob, function () {
+        const exifData = exif.getAllTags(this);
+        resolve(exifData)
+      })
+    })
+  }
+
   return (
     <div className="max-w-screen-xl mx-auto">
       <h2>Gallery</h2>
@@ -70,5 +101,6 @@ const Gallery = () => {
     </div>
   );
 };
+
 
 export default Gallery
