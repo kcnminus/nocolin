@@ -72,18 +72,18 @@ const Gallery = () => {
       } catch (error) {
         console.error('Error fetching images:', error);
       }
-
+    };
       fetchImageUrls();
-  }, []);
+  },[]);
 
   const getExif = (imageBlob) => {
     return new Promise((resolve) => {
       EXIF.getData(imageBlob, function () {
-        const exifData = exif.getAllTags(this);
+        const exifData = EXIF.getAllTags(this);
         resolve(exifData)
-      })
-    })
-  }
+      });
+    });
+  };
 
   return (
     <div className="max-w-screen-xl mx-auto">
