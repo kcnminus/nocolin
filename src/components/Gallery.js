@@ -35,7 +35,7 @@ const Gallery = () => {
       <h2>Gallery</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
         {imageData.map((imageUrl, index) => (
-          <img 
+          <img
           key={index}
           src={imageUrl}
           alt={`by Colin ${index + 1}`}
