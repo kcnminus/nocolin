@@ -33,13 +33,13 @@ const Gallery = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
       <h2>Gallery</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20">
+      <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => (
           <img
           key={index}
           src={imageUrl}
           alt={`by Colin ${index + 1}`}
-          className="rounded-md w-full h-full object-cover"
+          className="w-full h-full object-scale-down"
           />
         ))}
       </div>
