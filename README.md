@@ -11,6 +11,12 @@ I will likely use Postgres for database storage and relationships.
 
 If you're interested in keeping up with the changes, feel free to give me a shout. Thanks!
 
+07/28/23:
+- After doing some more research, I decided to switch libraries from exif-js to ExifReader(https://github.com/mattiasw/ExifReader/) because exif-js hasn't been
+updated since 2018, whereas ExifReader is still being updated regularly. 
+- Additionally, I added a modal! When you click on an image in the Gallery, you will be able to see a full-size version of it in a popup window and close it by clicking the enlarged image. 
+- The size of the images slowed down the rendering of the Gallery page quite a bit, so I added lazy loading, with other fixes to come later. 
+
 07/24/23:
 - I have decided to use the exif-js(https://github.com/exif-js/exif-js) library to display the EXIF data from my images as opposed to using exif-parser in the backend. Because exif-js is designed to work with images directly on a website, it seems like a good fit for extracting EXIF data from images that are already loaded in the browser from `src/assets`.
 
