@@ -7,7 +7,7 @@ const Bio = (props) => {
     <div>
       <img 
         className="max-w-sm"
-        src={require('../assets/green_hat.JPG')} 
+        src={require('../assets/profile/green_hat.JPG')} 
         alt="Profile"
       />
       <h1>{ name }</h1>

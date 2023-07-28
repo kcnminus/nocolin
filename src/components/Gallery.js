@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EXIF from 'exif-js';
+import * as ExifReader from 'exifreader';
 
 
 const Gallery = () => {
@@ -12,8 +12,9 @@ const Gallery = () => {
     const fetchImageUrls = async () => {
       try {
         // Fetch image URLs and update state
-        const imageFiles = require.context('../assets', false, /\.(jpe?g)$/);
+        const imageFiles = require.context('../assets', false, /\.(jpe?g)$/i);
         const urls = imageFiles.keys().map(imageFiles);
+        console.log(urls)
 
         const imageBlobs = await Promise.all(urls.map(async (url) =>{
           const response = await fetch(url);
@@ -24,6 +25,7 @@ const Gallery = () => {
         const exifDataArray = await Promise.all(imageBlobs.map(blob => getExif(blob)));
 
         setImageData(urls);
+        console.log(imageData)
         setExifData(exifDataArray);
       } catch (error) {
         console.error('Error fetching images:', error);
@@ -32,13 +34,32 @@ const Gallery = () => {
       fetchImageUrls();
   },[]);
 
-  const getExif = (imageBlob) => {
+  const getExif = async (imageBlob) => {
+    const arrayBuffer = await blobToArrayBuffer(imageBlob);
+    const tags = ExifReader.load(arrayBuffer);
+    const exifData = {
+      Make: tags.Make?.description,
+      Model: tags.Model?.description,
+      ShutterSpeedValue: tags.ShutterSpeedValue?.description,
+      FNumber: tags.FNumber?.description,
+      FocalLength: tags.FocalLengthIn35mmFilm?.description,
+      ISO: tags.ISOSpeedRatings?.description
+    };
+    return exifData;
+  };
+
+  const blobToArrayBuffer = (blob) => {
     return new Promise((resolve) => {
-      EXIF.getData(imageBlob, function () {
-        const exifData = EXIF.getAllTags(this);
-        resolve(exifData)
-      });
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsArrayBuffer(blob);
     });
+  };
+
+  const roundShutterSpeed = (ShutterSpeedValue) => {
+    const [numerator, denominator] = ShutterSpeedValue.split("/");
+    const roundedDenominator = Math.max(1, Math.round(parseInt(denominator, 10) / 100) * 100);
+    return `${numerator}/${roundedDenominator}`;
   };
 
   return (
@@ -46,7 +67,8 @@ const Gallery = () => {
       <h2>Gallery</h2>
       <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => {
-          const { Make, Model, ShutterSpeedValue, ApertureValue, FocalLength, ISO } = exifData[index] ?? {};
+          const { Make, Model, FNumber, FocalLength, ISO, ShutterSpeedValue } = exifData[index] ?? {};
+          const roundedShutterSpeedValue = ShutterSpeedValue && roundShutterSpeed(ShutterSpeedValue.toString());
           return(
           <div className="relative w-full h-full" key={index}>
             <img
@@ -54,11 +76,11 @@ const Gallery = () => {
               alt={`by Colin ${index + 1}`}
               className="w-full h-full object-scale-down cursor-pointer"
               onClick={() => setEnlargedImage(imageUrl)}
+              loading="lazy"
             />
             <div className="absolute bottom-0 bg-white bg-opacity-50 w-full text-center">
-              {Make && Make.toString()} {Model && Model.toString()} {FocalLength && FocalLength.toString()} 
-              {ApertureValue && ApertureValue.toString()} {ShutterSpeedValue && ShutterSpeedValue.toString()} 
-              {ISO && ISO.toString()}
+              {Make && Make.toString()} {Model && Model.toString()} {FocalLength && `${FocalLength.toString()}mm `} 
+              {FNumber && FNumber.toString()} {roundedShutterSpeedValue && `${roundedShutterSpeedValue.toString()} `} {ISO && `ISO ${ISO.toString()}`}
             </div>
           </div>
           );
