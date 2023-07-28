@@ -36,7 +36,6 @@ const Gallery = () => {
     return new Promise((resolve) => {
       EXIF.getData(imageBlob, function () {
         const exifData = EXIF.getAllTags(this);
-        console.log('Exif Data:', exifData);
         resolve(exifData)
       });
     });
@@ -50,7 +49,6 @@ const Gallery = () => {
           const { Make, Model, ShutterSpeedValue, ApertureValue, FocalLength, ISO } = exifData[index] ?? {};
           return(
           <div className="relative w-full h-full" key={index}>
-            {console.log('State Exif Data:', exifData)}
             <img
               src={imageUrl}
               alt={`by Colin ${index + 1}`}
@@ -58,11 +56,13 @@ const Gallery = () => {
               onClick={() => setEnlargedImage(imageUrl)}
             />
             <div className="absolute bottom-0 bg-white bg-opacity-50 w-full text-center">
-              {Make} {Model} {FocalLength} {ApertureValue} {ShutterSpeedValue} {ISO}
+              {Make && Make.toString()} {Model && Model.toString()} {FocalLength && FocalLength.toString()} 
+              {ApertureValue && ApertureValue.toString()} {ShutterSpeedValue && ShutterSpeedValue.toString()} 
+              {ISO && ISO.toString()}
             </div>
           </div>
           );
-        })};
+        })}
       </div>
       {enlargedImage && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-10">
