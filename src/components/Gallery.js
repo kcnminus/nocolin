@@ -64,7 +64,6 @@ const Gallery = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      <h2>Gallery</h2>
       <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => {
           const { Make, Model, FNumber, FocalLength, ISO, ShutterSpeedValue } = exifData[index] ?? {};

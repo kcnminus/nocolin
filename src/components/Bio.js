@@ -4,7 +4,7 @@ const Bio = (props) => {
   const {name, location, bioText} = props;
 
   return (
-    <div>
+    <div className="justify-center">
       <img 
         className="max-w-sm"
         src={require('../assets/profile/green_hat.JPG')} 

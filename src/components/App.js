@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Bio from './Bio';
 import SpotifyPlayer from './SpotifyPlayer';
 import Gallery from './Gallery';
+import Navbar from './Navbar';
 
 const App = () => {
   const [activeComponent, setActiveComponent] = useState('Home');
@@ -19,36 +20,14 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <h1>nocolin</h1>
-        <nav>
-          <ul>
-            <li onClick={() => handleNavClick('Home')}>
-              <Link to="/">Home</Link>
-            </li>
-            <li onClick={() => handleNavClick('Bio')}>
-              <Link to="/bio">About Me</Link>
-            </li>
-            <li onClick={() => handleNavClick('Spotify')}>
-              <Link to="/spotify">My Spotify</Link>
-            </li>
-            <li onClick={() => handleNavClick('Gallery')}>
-              <Link to="/gallery">Gallery</Link>
-            </li>
-          </ul>
-        </nav>
+      <div className="App">
+        <Navbar />
         <Routes>
-          <Route path="/" element={Home}/>
-          <Route path="/bio" render={() => <Bio {...bioData} />} />
-          <Route path="/spotify" element={SpotifyPlayer} />
-          <Route path="/gallery" element={Gallery}/>
+          <Route path="/" element={<Home/>} />
+          <Route path="/bio" element={<Bio {...bioData} />} />
+          <Route path="/spotify" element={<SpotifyPlayer />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
-        <div>
-          {activeComponent === 'Home' && <Home/>}
-          {activeComponent === 'Bio' && <Bio {...bioData} />}
-          {activeComponent === 'Spotify' && <SpotifyPlayer />}
-          {activeComponent === 'Gallery' && <Gallery />}
-        </div>
       </div>
     </Router>
   );
