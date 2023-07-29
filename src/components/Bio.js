@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar.js';
 import profilePic from '../assets/profile/green_hat.JPG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
