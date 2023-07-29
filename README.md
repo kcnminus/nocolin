@@ -11,6 +11,12 @@ I will likely use Postgres for database storage and relationships.
 
 If you're interested in keeping up with the changes, feel free to give me a shout. Thanks!
 
+07/29/23: 
+- I've done bit of very basic styling to make things easier on the eyes. Pure white is hard to look at!
+- I think I've got the 'Bio' and 'Background' components up and running, so I made the 'Bio' component my '/' route and 'Background' my '/background' route, which is viewable when you click 'About Me'. 
+- I added the react-github-calendar(https://github.com/grubersjoe/react-github-calendar) library to show my GitHub contributions and keep me accountable for pushing code every day. 
+- I'm moving very soon, so my next update could take a few days, but I'll continue to update my repo regularly until it is ready for deployment.
+
 07/28/23:
 - After doing some more research, I decided to switch libraries from exif-js to ExifReader(https://github.com/mattiasw/ExifReader/) because exif-js hasn't been
 updated since 2018, whereas ExifReader is still being updated regularly. 
