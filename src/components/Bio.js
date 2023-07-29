@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar.js';
 import profilePic from '../assets/profile/green_hat.JPG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 
 const Bio = () => {
   return (
@@ -24,11 +25,11 @@ const Bio = () => {
               Colin No
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
-              <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>{" "}
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-lg text-gray-500" />{" "}
               New York, NY
             </div>
             <div className="mb-2 text-gray-700 mt-10">
-              <i className="fas fa-briefcase mr-2 text-lg text-gray-500"></i>
+              <FontAwesomeIcon icon={faBriefcase} className="mr-2 text-lg text-gray-500" />
               Software Engineer
             </div>
           </div>
