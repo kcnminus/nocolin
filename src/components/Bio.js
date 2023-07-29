@@ -5,12 +5,12 @@ import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 
 const Bio = () => {
   return (
-    <div className="container mx-auto px-4">
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-64">
+    <div className="bg-gray-300 container mx-auto px-4">
+      <div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-xl rounded-lg mt-64">
         <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-              <div className="relative mt-5">
+              <div className="relative">
                 <img
                   alt="..."
                   src={profilePic}

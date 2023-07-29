@@ -63,7 +63,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto bg-gray-300">
       <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => {
           const { Make, Model, FNumber, FocalLength, ISO, ShutterSpeedValue } = exifData[index] ?? {};
@@ -73,11 +73,11 @@ const Gallery = () => {
             <img
               src={imageUrl}
               alt={`by Colin ${index + 1}`}
-              className="w-full h-full object-scale-down cursor-pointer"
+              className="shadow-lg w-full h-full object-scale-down cursor-pointer"
               onClick={() => setEnlargedImage(imageUrl)}
               loading="lazy"
             />
-            <div className="absolute bottom-0 bg-white bg-opacity-50 w-full text-center">
+            <div className="absolute bottom-0 bg-gray-200 bg-opacity-75 w-full text-center">
               {Make && Make.toString()} {Model && Model.toString()} {FocalLength && `${FocalLength.toString()}mm `} 
               {FNumber && FNumber.toString()} {roundedShutterSpeedValue && `${roundedShutterSpeedValue.toString()} `} {ISO && `ISO ${ISO.toString()}`}
             </div>
@@ -86,7 +86,7 @@ const Gallery = () => {
         })}
       </div>
       {enlargedImage && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-10">
+        <div className="fixed top-20 left-20 w-full h-3/4 bg-black bg-opacity-50 flex items-center justify-center z-10">
           <img src={enlargedImage} className="max-h-full max-w-full object-contain cursor-pointer" onClick={() => setEnlargedImage(null)} />
         </div>
       )}

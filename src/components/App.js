@@ -4,6 +4,7 @@ import Bio from './Bio';
 import SpotifyPlayer from './SpotifyPlayer';
 import Gallery from './Gallery';
 import Navbar from './Navbar';
+import Background from './Background';
 
 const App = () => {
   const [activeComponent, setActiveComponent] = useState('Home');
@@ -14,10 +15,11 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App bg-gray-300">
         <Navbar />
         <Routes>
-          <Route path="/bio" element={<Bio />} />
+          <Route path="/" element={<Bio />} />
+          <Route path="/background" element={<Background />} />
           <Route path="/spotify" element={<SpotifyPlayer />} />
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
