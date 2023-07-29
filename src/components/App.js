@@ -12,19 +12,12 @@ const App = () => {
     setActiveComponent(componentName);
   };
 
-  const bioData = {
-    name: 'Colin No',
-    location: 'New York, USA',
-    bioText: "Hey! I'm a software engineer who is passionate about learning and creating things. I built this website as a small showcase of my skills and achievements, like the music I've published and some photos I've taken."
-  };
-
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/bio" element={<Bio {...bioData} />} />
+          <Route path="/bio" element={<Bio />} />
           <Route path="/spotify" element={<SpotifyPlayer />} />
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
@@ -32,9 +25,5 @@ const App = () => {
     </Router>
   );
 };
-
-const Home = () => {
-  return <div>Welcome to nocolin.com!</div>
-}
 
 export default App;
