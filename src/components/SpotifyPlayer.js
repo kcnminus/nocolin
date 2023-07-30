@@ -2,7 +2,7 @@ import React from 'react'
 
 const SpotifyPlayer = () => {
   return (
-    <div className="shadow-lg flex justify-center mt-64">
+    <div className="shadow-lg flex justify-center mt-64 h-full">
       {<iframe 
       title="SpotifyPlayer"
       style={{ borderRadius: "12px" }} 

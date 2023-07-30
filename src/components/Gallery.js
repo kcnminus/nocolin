@@ -63,7 +63,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto bg-gray-300">
+    <div className="max-w-screen-xl mx-auto">
       <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => {
           const { Make, Model, FNumber, FocalLength, ISO, ShutterSpeedValue } = exifData[index] ?? {};
@@ -77,7 +77,7 @@ const Gallery = () => {
               onClick={() => setEnlargedImage(imageUrl)}
               loading="lazy"
             />
-            <div className="absolute bottom-0 bg-gray-200 bg-opacity-75 w-full text-center">
+            <div className="absolute bottom-0 bg-gray-300 bg-opacity-75 w-full text-center">
               {Make && Make.toString()} {Model && Model.toString()} {FocalLength && `${FocalLength.toString()}mm `} 
               {FNumber && FNumber.toString()} {roundedShutterSpeedValue && `${roundedShutterSpeedValue.toString()} `} {ISO && `ISO ${ISO.toString()}`}
             </div>
