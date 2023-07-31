@@ -24,7 +24,6 @@ const Background = () => {
                 </p>
               </div>
               <div className="flex flex-wrap justify-center mt-30" >
-                <ReactGithubCalendar username="kcnminus" blockMargin={6} blockRadius={4}/>
               </div>
             </div>
           </div>
