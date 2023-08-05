@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import * as ExifReader from 'exifreader';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Gallery = () => {
   const [imageData, setImageData] = useState([]);
   const [exifData, setExifData] = useState([]);
   const [enlargedImage, setEnlargedImage] = useState(null);
+
+  // Netlify CDN isn't enough to compress my images enough, so I added a toast message.
+  useEffect(() => {
+    toast.info("Sorry, I'm still working on image compression, and it appears that Netlify's CDN isn't enough to get the gallery loaded quickly. Please wait a few seconds while the images load.");
+  }, []);
 
   // useEffect will confirm that my component has mounted and then run fetchImageUrls
   useEffect(() => {
@@ -64,6 +70,7 @@ const Gallery = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
+      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover/>
       <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {imageData.map((imageUrl, index) => {
           const { Make, Model, FNumber, FocalLength, ISO, ShutterSpeedValue } = exifData[index] ?? {};
