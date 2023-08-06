@@ -2,6 +2,7 @@ import React from 'react';
 import profilePic from '../assets/profile/green_hat.JPG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { faFacebookSquare, faLinkedin , faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 const Bio = () => {
   return (
@@ -38,10 +39,34 @@ const Bio = () => {
                 <p className="mb-4 text-lg leading-relaxed text-gray-800">
                   Hey! I'm Colin. I'm a software engineer specializing in JavaScript and Python.
                   This website consists of small samples of my work in software engineering, music, and photography. 
-                  Feel free to check out my Facebook, LinkedIn, Instagram, and Github using the icons on the top right of this page. 
+                  Feel free to check out my Facebook, LinkedIn, Instagram, and Github using the respective icons for each. 
                 </p>
               </div>
             </div>
+          </div>
+          <div className="leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none">
+            <ul className="flex flex-row items-center list-none ml-auto">
+              <li className="nav-item">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="https://www.facebook.com/ colincno">
+                  <FontAwesomeIcon icon={faFacebookSquare} size="lg" className="leading-lg text-gray-600 opacity-75" />
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="https://www.linkedin.com/in/  colincno">
+                  <FontAwesomeIcon icon={faLinkedin} size="lg" className="leading-lg text-gray-600 opacity-75" />
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="https://www.instagram.com/  nocolin_">
+                  <FontAwesomeIcon icon={faInstagram} size="lg" className="leading-lg text-gray-600 opacity-75" />
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="https://www.github.com/ kcnminus">
+                  <FontAwesomeIcon icon={faGithub} size="lg" className="leading-lg text-gray-600 opacity-75" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
