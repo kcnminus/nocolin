@@ -9,8 +9,8 @@ const Background = () => {
           <div className="flex flex-wrap justify-center">
             <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
             </div>
-          <div className="text-center mt-12">
-            <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+          <div className="text-center mt-8 md:mt-12">
+            <h3 className="text-3xl md:text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
               About Me
             </h3>
           </div>
