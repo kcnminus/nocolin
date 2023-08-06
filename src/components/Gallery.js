@@ -10,7 +10,7 @@ const Gallery = () => {
 
   // Netlify CDN isn't enough to compress my images enough, so I added a toast message.
   useEffect(() => {
-    toast.info("Sorry, I'm still working on image compression, and it appears that Netlify's CDN isn't enough to get the gallery loaded quickly. Please wait a few seconds while the images load.");
+    toast.info("Sorry, I'm still working out a solution to get all my images to load quickly! Please wait a few seconds until the gallery is available.");
   }, []);
 
   // useEffect will confirm that my component has mounted and then run fetchImageUrls

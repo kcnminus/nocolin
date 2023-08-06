@@ -4,7 +4,7 @@ import ReactGithubCalendar from 'react-github-calendar';
 const Background = () => {
   return (
     <div className="container mx-auto px-4">
-      <div className="relative flex flex-col min-w-0 break-words bg-gray-300 w-full mb-6 shadow-xl rounded-lg mt-64">
+      <div className="relative flex flex-col min-w-0 break-words bg-gray-300 w-full mb-6 shadow-xl rounded-lg mt-16 md:mt-32">
         <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">

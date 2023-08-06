@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faLinkedin , faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-3">
   <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -11,13 +12,16 @@ const Navbar = () => {
       <a className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="/">
         nocolin
       </a>
-      <button className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button">
+      <button 
+        className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span className="block relative w-6 h-px rounded-sm bg-white"></span>
         <span className="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
         <span className="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
       </button>
     </div>
-    <div className="lg:flex flex-grow items-center justify-between" id="example-navbar-warning">
+    <div className={`lg:flex flex-grow items-center ${isOpen ? "" : "hidden"} lg:block id="example-navbar-warning"`}>
       <ul className="flex flex-col lg:flex-row list-none ml-auto">
         <li className="nav-item">
           <Link to="/background" className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
@@ -35,7 +39,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <ul className="flex flex-col lg:flex-row list-none ml-auto">
+      <ul className="flex flex-row items-center list-none ml-auto">
         <li className="nav-item">
           <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="https://www.facebook.com/colincno">
             <FontAwesomeIcon icon={faFacebookSquare} size="lg" className="leading-lg text-white opacity-75" />
