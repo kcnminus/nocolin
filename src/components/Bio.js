@@ -37,8 +37,9 @@ const Bio = () => {
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">
                 <p className="mb-2 md:mb-4 text-lg leading-relaxed text-gray-800">
-                  Hey! I'm Colin. I'm a software engineer specializing in JavaScript and Python.
-                  This website consists of small samples of my work in software engineering, music, and photography. 
+                  Hey! I'm Colin. I'm an Operations expert with some software engineering experience.
+                  I built this website to work on my web dev chops and showcase some of my work in music and photography.
+                  The gallery features an EXIF data reader, which loads the camera settings for each photograph.
                   Feel free to check out my Facebook, LinkedIn, Instagram, and Github using the respective icons for each. 
                 </p>
               </div>
