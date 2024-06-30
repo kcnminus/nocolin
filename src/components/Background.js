@@ -18,9 +18,9 @@ const Background = () => {
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">
                 <p className="mb-20 text-lg leading-relaxed text-gray-800">
-                   Though I didn't know it at the time, I first started learning to code in the heyday of MySpace and Xanga, when it was possible to customize one's homepage using HTML and CSS. I went to a pretty well-known STEM-focused high school in New York City, but had no idea it was possible to make a career out of writing code until just a few years ago! 
+                   Though I didn't know it at the time, I first started learning to code in the heyday of MySpace and Xanga, customizing my homepage using HTML and CSS. I went to a pretty well-known STEM-focused high school in New York City, but it took me a long time to really learn the possibilities of code. 
 
-                   I enjoy learning, and have been making an effort to push new code every day. I am also working on certifications in frontend, backend, and AWS Cloud. 
+                   I have been working to improve myself at least a little bit every day. Whether that's through diet or exercise, web dev, or creative work, my goal each day is to surpass the person I was yesterday. 
                 </p>
               </div>
               <div className="flex flex-wrap justify-center mt-30" >
